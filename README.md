@@ -144,7 +144,9 @@ console.log(styles)//{normal: "index__normal___3v60A", content: "index__content_
 项目中，通过dva，你不用写store与Provider的集成代码，dva帮你把这块实现,dva又将路由这块的逻辑剥离出来，提供类似接口(this.props.children)方式，方便接入项目路由js；(因此，dva只专注做redux相关的状态部分，并剥离路由且提供路由接口，方便接入路由)
 
 而你只需专注于：
+
 1、写reducer；(按dva规定，将reducer写在model下，以便dva能解析)
+
 2、哪个组件需要redux了，给组件包一层connect，写好mapStateToProps，
 
 #### umijs
