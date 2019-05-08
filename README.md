@@ -141,8 +141,9 @@ console.log(styles)//{normal: "index__normal___3v60A", content: "index__content_
 本节分析参考pages/.umi/下的文件进行。
 
 #### dva
-项目中，通过dva，你不用写store与Provider的集成代码，dva帮你把这块实现,dva又将路由这块的逻辑剥离出来，提供类似接口(this.props.children)方式，方便接入项目路由js；(因此，dva只专注做redux相关的状态部分，并剥离路由且提供路由接口，方便接入路由)。
-而你只需专注于
+项目中，通过dva，你不用写store与Provider的集成代码，dva帮你把这块实现,dva又将路由这块的逻辑剥离出来，提供类似接口(this.props.children)方式，方便接入项目路由js；(因此，dva只专注做redux相关的状态部分，并剥离路由且提供路由接口，方便接入路由)
+
+而你只需专注于：
 1、写reducer；(按dva规定，将reducer写在model下，以便dva能解析)
 2、哪个组件需要redux了，给组件包一层connect，写好mapStateToProps，
 
@@ -164,12 +165,17 @@ ReactDOM.render(React.createElement(
 ```
 #### 小结
 因此在以上过程umijs做了以下事情：
+
 1、封装路由，按约定会将pages下的文件编译为路由文件；
+
 2、将上面的路由文件与 dva封装好的redux的reducer状态文件有机组合；
+
 3、有机结合路由和redux后，ReactDOM.render生成启动入口js；
+
 由上可知，umijs至始至终没有处理过redux部分，都是dva处理好后，umijs拿过来组合下而已。
 
 整个项目过程，dva只做了一件事情：
+
 封装reducer，处理redux，dva按约定会将model目录下的文件封装成reducer；
 
 另外在整个过程中，umijs顺手还做了 webpack配置，比如module.hot 热更新。
